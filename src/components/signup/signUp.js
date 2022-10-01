@@ -14,20 +14,30 @@ function signUp() {
             }
            
         })
+        let [exist,setExist]=useState('')
     let [fname,setFname]=useState('')
     let [lname,setLname]=useState('')
     let [email,setEmail]=useState('')
     let [password,setPassword]=useState('')
     let [passwordConfirm,setPasswordConfirm]=useState('')
+    let [wrong,setWrong]=useState('')
     function sign_Up(){
      
-        let data={fname,lname,email,password,login:'false'}
-        if(email!=''&&password!=''){
+        let data={fname,lname,email,password,status:'active'}
+        if((fname,lname,email,password)!=''){
         axios.post('http://localhost:3000/userSignUp',data).then((done)=>{
             console.log(done.data.user);
-            localStorage.setItem('token',done.data.user.token)
+            
+            if(done.data.user.exist){
+
+              setExist('email you entered already exists')
+            }else{
+              localStorage.setItem('token',done.data.user.token)
             navigate('/')
+            }
         })
+         }else{
+          setWrong(' all fields are required')
          }
     }
   return (
@@ -82,7 +92,8 @@ function signUp() {
                       <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
                     </div>
                   </div>
-
+    <p className='text-danger'>{wrong}</p>
+    <p className='text-danger'>{exist}</p>
                   <div className="form-check d-flex justify-content-center mb-5">
                     <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
                     <label className="form-check-label" htmlFor="form2Example3">
