@@ -20,6 +20,7 @@ import Nav from './components/userNavBar/userNavBar'
 import AdminLogin from './components/adminLogin/adminLogin'
 import AdminHome from './components/adminHome/adminHome'
 import Completed from './components/adminHome/completed';
+import Users from './components/adminHome/users';
 function App() {
   //const [email,setEmail]=useState('')
  const [login,setLogin] = useState(false)
@@ -73,6 +74,9 @@ function App() {
 
 </Route>
 <Route path='/completed' element={<Completed/>}>
+
+</Route>
+<Route path='/users' element={<Users/>}>
 
 </Route>
       

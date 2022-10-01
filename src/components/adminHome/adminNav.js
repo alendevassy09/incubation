@@ -38,6 +38,9 @@ function adminNav() {
         <li class="nav-item">
           <button class="btn" onClick={()=>{navigate('/completed')}} aria-current="page">list</button>
         </li>
+        <li class="nav-item">
+          <button class="btn" onClick={()=>{navigate('/users')}} aria-current="page">users</button>
+        </li>
       </ul>
 
         <button class="btn btn-outline-success" onClick={()=>{adminLogout()}} type="submit">logout</button>
