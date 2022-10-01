@@ -40,9 +40,11 @@ function UserHome() {
                     if(status.data=='new'){
                         SetProgress('25')
                     }else if(status.data=='approved'){
-                        SetProgress('50')
+                        SetProgress('75')
                     }else if(status.data=='completed'){
                         SetProgress('100')
+                    }else if(status.data=='pending'){
+                        SetProgress('50')
                     }
                     
                 }else{
@@ -117,6 +119,7 @@ function UserHome() {
             <div className="progress">
                 {progress=='100'?<div className="progress-bar w-100" role="progressbar" aria-valuenow='100' aria-valuemin="0" aria-valuemax="100"></div>:''}
                 {progress=='25'?<div className="progress-bar w-25" role="progressbar" aria-valuenow='25' aria-valuemin="0" aria-valuemax="100"></div>:''}
+                {progress=='75'?<div className="progress-bar w-75" role="progressbar" aria-valuenow='75' aria-valuemin="0" aria-valuemax="100"></div>:''}
                 {progress=='50'?<div className="progress-bar w-50" role="progressbar" aria-valuenow='50' aria-valuemin="0" aria-valuemax="100"></div>:''}
 
            

@@ -27,7 +27,7 @@ function adminNav() {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <button onClick={()=>{adminHome()}} class="btn" >Admin</button>
+      <button onClick={()=>{adminHome()}} class="btn" >Home</button>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <button class="btn" onClick={()=>{newapp()}} aria-current="page">New</button>
