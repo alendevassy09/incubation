@@ -5,6 +5,18 @@ import {useNavigate}from 'react-router-dom'
 import axios from 'axios'
 function userNavBar() {
 const [name,setName]=useState('')
+let navigate=useNavigate()
+useEffect(()=>{
+  // if(!localStorage.getItem('email')){
+  //     navigate('/')
+  // }
+  axios.get('http://localhost:3000',{headers:{token:window.sessionStorage.getItem('token'),email:localStorage.getItem('email')}}).then((status)=>{
+  if(!status.data.status){
+    window.sessionStorage.removeItem('token')
+    navigate('/')
+  }
+})
+})
 
         useEffect(()=>{
             axios.get('http://localhost:3000/user',{params:{email:localStorage.getItem('email')}}).then((fullName)=>{
@@ -15,10 +27,11 @@ const [name,setName]=useState('')
                     
    
    
-    let navigate=useNavigate()
+
     function logout(){
-        
+      let key=['email','token']
         localStorage.removeItem('email')
+        window.sessionStorage.removeItem('token')
         console.log('asfasfasfasdfasdfasfasdf');
         navigate('/')
     }

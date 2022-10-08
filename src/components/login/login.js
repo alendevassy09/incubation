@@ -8,9 +8,16 @@ function login() {
   const {userExist,setUserExist}=useContext(UserContext)
   console.log('exist',userExist);
   useEffect(()=>{
-    if(localStorage.getItem('email')){
-      navigate('/home')
-    }
+    // if(localStorage.getItem('email')){
+    //   navigate('/home')
+    // }
+      axios.get('http://localhost:3000',{headers:{token:window.sessionStorage.getItem('token')}}).then((status)=>{
+        console.log(status.data);
+        if(status.data.status){
+          navigate('/home')
+        }
+      })
+
   })
   
   const [wrong,setWrong]=useState('')
@@ -37,9 +44,11 @@ function user_login(){
       console.log(result.data.exist);
       
       if (result.data.exist) {
+        window.sessionStorage.setItem("token", result.data.token)
+        //localStorage.setItem('token',result.data.token)
         localStorage.setItem('email', email)
         localStorage.setItem('user_id',result.data.user)
-        navigate('/home')
+       navigate('/home')
       }else{
         setWrong('invalid username or password')
       }

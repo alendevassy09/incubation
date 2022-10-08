@@ -10,11 +10,16 @@ function viewMore() {
     
     let navigate=useNavigate()
    
-   useEffect(()=>{
-    if(!localStorage.getItem('email')){
-        navigate('/')
-    }
-   })
+//    useEffect(()=>{
+//     // if(!localStorage.getItem('email')){
+//     //     navigate('/')
+//     // }
+//     axios.get('http://localhost:3000',{headers:{token:localStorage.getItem('token')}}).then((status)=>{
+//         if(!status.data){
+//           navigate('/')
+//         }
+//    })
+//    })
 
    
 

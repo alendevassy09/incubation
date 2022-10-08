@@ -9,9 +9,14 @@ function signUp() {
     const {userExist,setUserExist}=useContext(UserContext)
         console.log(userExist);
         useEffect(()=>{
-            if(localStorage.getItem('email')){
-                navigate('/home')
-            }
+            // if(localStorage.getItem('email')){
+            //     navigate('/home')
+            // }
+            axios.get('http://localhost:3000',{headers:{token:window.sessionStorage.getItem('token')}}).then((status)=>{
+        if(status.data.status){
+          navigate('/home')
+        }
+      })
            
         })
         let [exist,setExist]=useState('')
@@ -25,6 +30,7 @@ function signUp() {
      
         let data={fname,lname,email,password,status:'active'}
         if((fname,lname,email,password)!=''){
+          if(password===passwordConfirm){
         axios.post('http://localhost:3000/userSignUp',data).then((done)=>{
             console.log(done.data.user);
             
@@ -32,10 +38,12 @@ function signUp() {
 
               setExist('email you entered already exists')
             }else{
-              localStorage.setItem('token',done.data.user.token)
+              //localStorage.setItem('token',done.data.user.token)
             navigate('/')
             }
-        })
+          })}else{
+            setExist('password doesnt match')
+          }
          }else{
           setWrong(' all fields are required')
          }

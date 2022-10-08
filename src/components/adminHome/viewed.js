@@ -91,7 +91,7 @@ function viewed() {
            <div className="container">
             <div className="row">
                 <div className="col-12 text-center">
-                <h4 className='text-danger mt-5'>There Are No Pending Requests</h4>
+                <h4 className='text-danger mt-5'> No Pending Requests</h4>
                 </div>
             </div>
            </div>

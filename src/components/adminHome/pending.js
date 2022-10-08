@@ -81,7 +81,7 @@ function pending() {
            <div className="container">
             <div className="row">
                 <div className="col-12 text-center">
-                <h4 className='text-danger mt-5'>There Are No New Applications</h4>
+                <h4 className='text-danger mt-5'> No New Requests</h4>
                 </div>
             </div>
            </div>

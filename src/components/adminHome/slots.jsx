@@ -52,7 +52,8 @@ function slots() {
   return (
     <div>
       <AdminNav></AdminNav>
-        <div className="container vh-100 mt-4">
+        <div className="container vh-100 mt-4 text-center">
+          <h1 className='text-danger'>Available Slots</h1>
             <div className="row h-25 w-100 justify-content-center">
                 
                     
